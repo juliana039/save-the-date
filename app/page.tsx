@@ -140,16 +140,19 @@ export default function Home() {
     <main>
       <section className="hero" id="inicio">
         <div className="hero-glitter-rain" aria-hidden="true">
-          {Array.from({ length: 26 }, (_, index) => (
-            <i
+          {Array.from({ length: 14 }, (_, index) => (
+            <img
               key={index}
-              className="spark"
+              src={CAP_IMAGE}
+              alt=""
+              className="falling-cap"
               style={{
-                "--x": `${(index * 37) % 100}%`,
-                "--delay": `${-((index * 0.83) % 6).toFixed(2)}s`,
-                "--duration": `${(4 + ((index * 0.53) % 3)).toFixed(2)}s`,
-                "--drift": `${((index % 5) - 2) * 18}px`,
-                "--size": `${4 + (index % 3)}px`,
+                "--x": `${(index * 71) % 100}%`,
+                "--delay": `${-((index * 1.7) % 10).toFixed(2)}s`,
+                "--duration": `${(7 + ((index * 0.9) % 4)).toFixed(2)}s`,
+                "--drift": `${((index % 5) - 2) * 26}px`,
+                "--size": `${22 + (index % 4) * 6}px`,
+                "--rot": `${((index % 7) - 3) * 14}deg`,
               } as React.CSSProperties}
             />
           ))}
