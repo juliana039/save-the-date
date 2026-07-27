@@ -27,10 +27,10 @@ h1 { width:100%; font-size:clamp(6.5rem,18vw,15rem); letter-spacing:-.07em; disp
 h1.h1-small { font-size:clamp(4.5rem,11vw,8.5rem); }
 h1 span { text-transform:uppercase; }
 h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
-h1.h1-offset { position:relative; display:block; text-align:left; width:min(300px,58vw); margin:0 auto; }
+h1.h1-offset { position:relative; display:block; text-align:left; width:min(300px,58vw); margin:0 auto; padding-bottom:.95em; }
 h1.h1-offset span { display:block; text-align:left; }
-h1.h1-offset em { display:block; text-align:right; margin-top:-.32em; }
-h1.h1-offset .cap-decor-1 { position:absolute; left:50%; top:-30%; transform:translateX(-50%) rotate(-6deg); width:clamp(56px,7vw,96px); }
+h1.h1-offset em { position:absolute; left:59%; top:.82em; }
+h1.h1-offset .cap-decor-1 { position:absolute; left:82%; top:.55em; transform:translateX(-50%) rotate(-6deg); width:clamp(50px,6.2vw,86px); z-index:1; }
 .party-name { text-transform:uppercase; letter-spacing:.55em; font-size:clamp(.65rem,1.3vw,.9rem); font-weight:700; margin:34px 0 18px; }
 .date-lockup { display:flex; gap:14px; align-items:center; margin:20px 0; }
 .date-lockup span { background:var(--pink); color:white; font-size:.7rem; padding:7px 9px; border-radius:2px; font-weight:700; }
