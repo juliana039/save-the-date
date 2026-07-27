@@ -57,6 +57,11 @@ h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
 @keyframes reflectionBlink { 0%,100%{opacity:.08;transform:rotate(45deg) scale(.35)}50%{opacity:.9;transform:rotate(135deg) scale(1.4)} }
 .section { padding:clamp(76px,11vw,150px) clamp(20px,7vw,110px); }
 .section-number { color:var(--dark-pink); border-top:1px solid #2b182044; padding-top:14px; margin-bottom:clamp(52px,8vw,100px); }
+.has-cap { position:relative; }
+.cap-decor { position:absolute; width:clamp(56px,7vw,96px); height:auto; opacity:.9; pointer-events:none; z-index:1; filter:drop-shadow(0 8px 20px #00000055); }
+.cap-decor-1 { right:6%; top:14%; transform:rotate(12deg); }
+.cap-decor-2 { right:4%; top:2%; transform:rotate(-10deg); }
+.cap-decor-3 { left:6%; bottom:8%; transform:rotate(-14deg); }
 .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:center; }
 .intro-grid:has(.intro-copy:only-child) { grid-template-columns:1fr; }
 .intro-copy { max-width:560px; }
