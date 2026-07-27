@@ -30,7 +30,7 @@ h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
 h1.h1-offset { display:block; text-align:left; width:min(360px,66vw); margin:0 auto; }
 h1.h1-offset span { display:block; text-align:left; }
 h1.h1-offset em { display:block; text-align:left; margin:-.08em 0 0 32%; white-space:nowrap; }
-h1.h1-offset .cap-decor-1 { display:inline-block; position:static; width:.62em; height:auto; margin-left:.08em; vertical-align:.12em; transform:rotate(8deg); }
+h1.h1-offset .cap-decor-1 { display:inline-block; position:relative; top:-.72em; left:-.05em; width:.62em; height:auto; margin-right:-.15em; vertical-align:top; transform:rotate(8deg); }
 h1.h1-offset span { display:block; text-align:center; }
 h1.h1-offset em { display:block; text-align:center; margin-top:-.1em; }
 .party-name { text-transform:uppercase; letter-spacing:.55em; font-size:clamp(.65rem,1.3vw,.9rem); font-weight:700; margin:34px 0 18px; }
