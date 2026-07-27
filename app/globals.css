@@ -10,9 +10,8 @@ button { cursor:pointer; }
 .hero { min-height:100svh; position:relative; display:flex; flex-direction:column; overflow:hidden; color:var(--cream); padding:24px clamp(20px,4vw,64px); background:radial-gradient(circle at 76% 44%,#661036 0,transparent 27%),linear-gradient(135deg,#090909,#14000b 67%,#350019); }
 .hero::before { content:""; position:absolute; inset:0; opacity:.13; background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px); background-size:19px 19px; mask-image:linear-gradient(90deg,transparent,#000,transparent); }
 .hero-glow { position:absolute; width:48vw; height:48vw; max-width:600px; max-height:600px; border-radius:50%; right:-12%; top:18%; background:radial-gradient(circle,#f20c787d,transparent 65%); filter:blur(18px); }
-.hero-starburst { position:absolute; inset:-55%; opacity:.72; background:repeating-conic-gradient(from -8deg at 50% 50%,#f20c78 0 3deg,transparent 3deg 11deg,#ff89bd 11deg 11.5deg,transparent 11.5deg 20deg); animation:heroStarTurn 34s linear infinite; mask-image:radial-gradient(circle,#0000 0 7%,#000 25%,#0000 72%); }
-.hero-star-sparks { position:absolute; inset:0; z-index:1; pointer-events:none; }
-.hero-star-sparks i { --i:0; position:absolute; width:clamp(4px,.65vw,9px); aspect-ratio:1; left:calc(8% + (var(--i) * 5.1%)); top:calc(11% + (var(--i) * 2.05%)); background:#fff; box-shadow:0 0 10px #fff,0 0 24px #f20c78; transform:rotate(45deg); animation:heroSpark 2.8s calc(var(--i) * -.19s) ease-in-out infinite; }
+.hero-glitter-rain { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.hero-glitter-rain .spark { animation:glitterFall var(--duration) var(--delay) linear infinite; }
 .flash { position:absolute; inset:0; background:white; opacity:0; pointer-events:none; animation:cameraFlash 1.4s .2s ease-out 1; z-index:10; }
 @keyframes cameraFlash { 0%,100%{opacity:0} 8%{opacity:.88} 18%{opacity:0} 26%{opacity:.26} 38%{opacity:0} }
 nav { display:flex; justify-content:space-between; align-items:center; position:relative; z-index:2; }
@@ -28,6 +27,10 @@ h1 { width:100%; font-size:clamp(6.5rem,18vw,15rem); letter-spacing:-.07em; disp
 h1.h1-small { font-size:clamp(4.5rem,11vw,8.5rem); }
 h1 span { text-transform:uppercase; }
 h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
+h1.h1-offset { position:relative; display:block; text-align:left; width:min(300px,58vw); margin:0 auto; }
+h1.h1-offset span { display:block; text-align:left; }
+h1.h1-offset em { display:block; text-align:right; margin-top:-.32em; }
+h1.h1-offset .cap-decor-1 { position:absolute; left:50%; top:-30%; transform:translateX(-50%) rotate(-6deg); width:clamp(56px,7vw,96px); }
 .party-name { text-transform:uppercase; letter-spacing:.55em; font-size:clamp(.65rem,1.3vw,.9rem); font-weight:700; margin:34px 0 18px; }
 .date-lockup { display:flex; gap:14px; align-items:center; margin:20px 0; }
 .date-lockup span { background:var(--pink); color:white; font-size:.7rem; padding:7px 9px; border-radius:2px; font-weight:700; }
@@ -47,8 +50,9 @@ h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
 .hero-sticker b { position:absolute; font-family:"Instrument Serif"; font-size:6rem; color:var(--pink); opacity:.8; }
 .scroll { position:relative; z-index:2; color:#fff9; text-decoration:none; font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; }
 .ticker { background:var(--pink); overflow:hidden; padding:12px 0; white-space:nowrap; transform:rotate(-1deg) scale(1.02); position:relative; z-index:3; }
-.ticker div { font-size:.75rem; font-weight:700; letter-spacing:.2em; animation:marquee 20s linear infinite; }
-@keyframes marquee { to { transform:translateX(-40%); } }
+.ticker div { display:inline-flex; font-size:.75rem; font-weight:700; letter-spacing:.2em; animation:marquee 20s linear infinite; }
+.ticker span { display:inline-block; white-space:nowrap; }
+@keyframes marquee { to { transform:translateX(-50%); } }
 @keyframes heroStarTurn { to { transform:rotate(360deg); } }
 @keyframes heroSpark { 0%,100%{opacity:.15;transform:rotate(45deg) scale(.35)}50%{opacity:1;transform:rotate(135deg) scale(1.5)} }
 @keyframes glitterBeamPulse { 0%,100%{opacity:.55;filter:drop-shadow(0 0 5px #f20c78)}50%{opacity:1;filter:drop-shadow(0 0 13px #f20c78)} }

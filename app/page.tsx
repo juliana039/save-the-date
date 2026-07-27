@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const EVENT_DATE = new Date("2026-09-03T19:00:00-04:00");
+const EVENT_DATE = new Date("2026-07-31T19:00:00-04:00");
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const CAP_IMAGE = `${BASE_PATH}/graduation-cap.png`;
 
@@ -139,27 +139,48 @@ export default function Home() {
   return (
     <main>
       <section className="hero" id="inicio">
-        <div className="hero-starburst" aria-hidden="true" />
-        <div className="hero-star-sparks" aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <i key={index} style={{ "--i": index } as React.CSSProperties} />)}</div>
+        <div className="hero-glitter-rain" aria-hidden="true">
+          {Array.from({ length: 26 }, (_, index) => (
+            <i
+              key={index}
+              className="spark"
+              style={{
+                "--x": `${(index * 37) % 100}%`,
+                "--delay": `${-((index * 0.83) % 6).toFixed(2)}s`,
+                "--duration": `${(4 + ((index * 0.53) % 3)).toFixed(2)}s`,
+                "--drift": `${((index % 5) - 2) * 18}px`,
+                "--size": `${4 + (index % 3)}px`,
+              } as React.CSSProperties}
+            />
+          ))}
+        </div>
         <div className="flash" aria-hidden="true" />
         <div className="hero-glow" aria-hidden="true" />
-        <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-1" aria-hidden="true" />
         <nav aria-label="Navegação principal">
           <a className="wordmark" href="#inicio">NAT CONVIDA <i>✦</i></a>
-          <div className="nav-links"><a className="nav-date" href="#detalhes">03.09.26</a></div>
+          <div className="nav-links"><a className="nav-date" href="#detalhes">31.07.26</a></div>
         </nav>
         <div className="hero-copy reveal">
-          <p className="eyebrow">Comemore a formatura da Nat</p>
-          <h1 className="h1-small"><span>Forma</span><em>tura</em></h1>
+          <p className="eyebrow">Comemore a formatura da Nat!</p>
+          <h1 className="h1-small h1-offset">
+            <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-1" aria-hidden="true" />
+            <span>Forma</span>
+            <em>tura</em>
+          </h1>
           <p className="party-name">Save the date</p>
-          <div className="date-lockup"><span>SEX</span><strong>03 · 09 · 2026</strong></div>
+          <div className="date-lockup"><span>SEX</span><strong>31 · 07 · 2026</strong></div>
           <div className="date-glitter-beam" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
           <p className="hero-note">Separe a data e venha comemorar comigo.</p>
         </div>
         <a className="scroll" href="#tema">deslize para descobrir ↓</a>
       </section>
 
-      <section className="ticker" aria-hidden="true"><div>VEM CELEBRAR COM A GENTE ✦ FORMATURA DA NAT ✦ 03.09.2026 ✦ VEM CELEBRAR COM A GENTE ✦ FORMATURA DA NAT ✦</div></section>
+      <section className="ticker" aria-hidden="true">
+        <div>
+          <span>VEM CELEBRAR COM A GENTE ✦ FORMATURA DA NAT ✦ 31.07.2026 ✦ </span>
+          <span>VEM CELEBRAR COM A GENTE ✦ FORMATURA DA NAT ✦ 31.07.2026 ✦ </span>
+        </div>
+      </section>
 
       <section className="intro section has-cap" id="tema">
         <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-2" aria-hidden="true" />
@@ -171,6 +192,9 @@ export default function Home() {
               <p>Depois de anos de dedicação, chegou a hora de comemorar: a Nasthya se formou em Ciência da Computação! Quero celebrar essa conquista rodeada de quem esteve comigo nessa caminhada.</p>
               <p>Separe a data e venha brindar comigo essa nova fase.</p>
             </div>
+          </div>
+          <div className="wig-gif">
+            <img src={`${BASE_PATH}/formatura.png`} alt="Silhuetas de formandos jogando capelos para o alto contra um céu ao entardecer" className="is-active" />
           </div>
         </div>
       </section>
@@ -205,9 +229,9 @@ export default function Home() {
 
       <section className="details section" id="detalhes">
         <div className="section-number">03 / ANOTE AÍ</div>
-        <div className="details-title"><p>uma noite para celebrar</p><h2>03<br /><em>setembro</em><br />2026</h2></div>
+        <div className="details-title"><p>uma noite para celebrar</p><h2>31<br /><em>julho</em><br />2026</h2></div>
         <div className="detail-cards">
-          <article><span>Data</span><strong>Sexta, 3 de setembro<br />de 2026</strong></article>
+          <article><span>Data</span><strong>Sexta, 31 de julho<br />de 2026</strong></article>
           <article><span>Horário</span><strong>19h</strong><small>Provável — pode ajustar</small></article>
           <article><span>Local</span><strong>Eulálio Chaves</strong><small>UFAM</small></article>
         </div>
@@ -225,12 +249,11 @@ export default function Home() {
       </section>
 
       <section className="closing section">
-        <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-3" aria-hidden="true" />
         <div className="closing-disco" aria-hidden="true"><span /></div>
         <div className="closing-reflections" aria-hidden="true">{Array.from({ length: 14 }, (_, index) => <i key={index} style={{ "--i": index } as React.CSSProperties} />)}</div>
         <p className="closing-top">Comemore a formatura da Nat —</p>
         <h2>bora <br />comemorar?</h2>
-        <div className="closing-date">03 <span>/</span> 09 <span>/</span> 2026</div>
+        <div className="closing-date">31 <span>/</span> 07 <span>/</span> 2026</div>
         <p className="last-line">Anos de esforço, uma noite de festa.</p>
       </section>
       <footer><span>Formatura da Nat · 2026</span><span>✦ Save the Date ✦</span></footer>
