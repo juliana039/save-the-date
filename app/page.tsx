@@ -156,7 +156,6 @@ export default function Home() {
         </div>
         <div className="flash" aria-hidden="true" />
         <div className="hero-glow" aria-hidden="true" />
-        <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-1" aria-hidden="true" />
         <nav aria-label="Navegação principal">
           <a className="wordmark" href="#inicio">NAT CONVIDA <i>✦</i></a>
           <div className="nav-links"><a className="nav-date" href="#detalhes">31.07.26</a></div>
@@ -166,6 +165,7 @@ export default function Home() {
           <h1 className="h1-small h1-offset">
             <span>Forma</span>
             <em>tura</em>
+            <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-1" aria-hidden="true" />
           </h1>
           <p className="party-name">Save the date</p>
           <div className="date-lockup"><span>SEX</span><strong>31 · 07 · 2026</strong></div>
