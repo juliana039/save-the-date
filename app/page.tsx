@@ -167,7 +167,7 @@ export default function Home() {
           <p className="eyebrow">Comemore a formatura da Nat!</p>
           <h1 className="h1-small h1-offset">
             <span>Forma</span>
-            <em><img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-1" aria-hidden="true" />tura</em>
+            <em>tura</em>
           </h1>
           <p className="party-name">Save the date</p>
           <div className="date-lockup"><span>SEX</span><strong>31 · 07 · 2026</strong></div>
