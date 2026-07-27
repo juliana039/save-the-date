@@ -1,6 +1,6 @@
 # Save the Date · Wig Party da Ju
 
-Convite interativo para o aniversário da Juliana em **4 de setembro de 2026**.
+Convite interativo para o aniversário da Juliana em **quinta-feira, 3 de setembro de 2026**.
 
 ## Publicação no GitHub Pages
 
