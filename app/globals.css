@@ -30,7 +30,7 @@ h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
 h1.h1-offset { position:relative; display:block; text-align:left; width:min(300px,58vw); margin:0 auto; padding-bottom:.95em; }
 h1.h1-offset span { display:block; text-align:left; }
 h1.h1-offset em { position:absolute; left:59%; top:.82em; }
-h1.h1-offset .cap-decor-1 { position:absolute; left:82%; top:.55em; transform:translateX(-50%) rotate(-6deg); width:clamp(50px,6.2vw,86px); z-index:1; }
+h1.h1-offset .cap-decor-1 { position:absolute; left:97%; top:.5em; transform:translateX(-50%) rotate(-6deg); width:clamp(50px,6.2vw,86px); z-index:1; }
 .party-name { text-transform:uppercase; letter-spacing:.55em; font-size:clamp(.65rem,1.3vw,.9rem); font-weight:700; margin:34px 0 18px; }
 .date-lockup { display:flex; gap:14px; align-items:center; margin:20px 0; }
 .date-lockup span { background:var(--pink); color:white; font-size:.7rem; padding:7px 9px; border-radius:2px; font-weight:700; }
