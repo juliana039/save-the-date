@@ -21,15 +21,15 @@ nav a { color:inherit; text-decoration:none; font-size:.75rem; letter-spacing:.1
 .nav-date { border:1px solid #ffffff55; border-radius:999px; padding:10px 16px; }
 .hero-copy { position:relative; z-index:2; margin:auto; width:min(980px,100%); padding:9vh 0; text-align:center; display:flex; flex-direction:column; align-items:center; }
 .eyebrow,.section-number { text-transform:uppercase; font-size:.7rem; font-weight:700; letter-spacing:.22em; }
-.eyebrow { color:var(--silver); margin:0; }
-.eyebrow-wrap { position:relative; display:flex; flex-direction:column; align-items:center; margin:0 0 16px; }
-.eyebrow-wrap .cap-decor-1 { position:relative; width:clamp(44px,5.4vw,72px); margin-bottom:6px; transform:rotate(-6deg); }
+.eyebrow { color:var(--silver); margin:0 0 16px; }
 h1,h2 { font-family:"Instrument Serif",serif; font-weight:400; margin:0; line-height:.82; }
 h1 { width:100%; font-size:clamp(6.5rem,18vw,15rem); letter-spacing:-.07em; display:flex; flex-direction:column; align-items:center; text-align:center; text-transform:uppercase; text-shadow:0 14px 55px #000; }
 h1.h1-small { font-size:clamp(4.5rem,11vw,8.5rem); }
 h1 span { text-transform:uppercase; }
 h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
-h1.h1-offset { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; width:auto; margin:0 auto; }
+h1.h1-offset { display:inline-flex; flex-direction:column; align-items:center; width:auto; }
+h1.h1-offset span { align-self:flex-end; }
+h1.h1-offset em { align-self:flex-start; margin-top:-.1em; }
 h1.h1-offset span { display:block; text-align:center; }
 h1.h1-offset em { display:block; text-align:center; margin-top:-.1em; }
 .party-name { text-transform:uppercase; letter-spacing:.55em; font-size:clamp(.65rem,1.3vw,.9rem); font-weight:700; margin:34px 0 18px; }
@@ -64,7 +64,7 @@ h1.h1-offset em { display:block; text-align:center; margin-top:-.1em; }
 .section-number { color:var(--dark-pink); border-top:1px solid #2b182044; padding-top:14px; margin-bottom:clamp(52px,8vw,100px); }
 .has-cap { position:relative; }
 .cap-decor { position:absolute; width:clamp(56px,7vw,96px); height:auto; opacity:.9; pointer-events:none; z-index:1; filter:drop-shadow(0 8px 20px #00000055); }
-.cap-decor-1 { right:6%; top:14%; transform:rotate(12deg); }
+.cap-decor-1 { right:12%; top:30%; transform:rotate(-6deg); }
 .cap-decor-2 { right:4%; top:2%; transform:rotate(-10deg); }
 .cap-decor-3 { left:6%; bottom:8%; transform:rotate(-14deg); }
 .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:center; }
