@@ -196,7 +196,7 @@ export default function Home() {
             </div>
           </div>
           <div className="wig-gif">
-            <img src={`${BASE_PATH}/formatura.jpg`} alt="Foto da formatura da Nat" className="is-active" />
+            <img src={`${BASE_PATH}/formatura.png`} alt="Foto da formatura da Nat" className="is-active" />
           </div>
         </div>
       </section>
