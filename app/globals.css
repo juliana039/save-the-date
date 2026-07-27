@@ -21,16 +21,17 @@ nav a { color:inherit; text-decoration:none; font-size:.75rem; letter-spacing:.1
 .nav-date { border:1px solid #ffffff55; border-radius:999px; padding:10px 16px; }
 .hero-copy { position:relative; z-index:2; margin:auto; width:min(980px,100%); padding:9vh 0; text-align:center; display:flex; flex-direction:column; align-items:center; }
 .eyebrow,.section-number { text-transform:uppercase; font-size:.7rem; font-weight:700; letter-spacing:.22em; }
-.eyebrow { color:var(--silver); margin:0 0 16px; }
+.eyebrow { color:var(--silver); margin:0; }
+.eyebrow-wrap { position:relative; display:flex; flex-direction:column; align-items:center; margin:0 0 16px; }
+.eyebrow-wrap .cap-decor-1 { position:relative; width:clamp(44px,5.4vw,72px); margin-bottom:6px; transform:rotate(-6deg); }
 h1,h2 { font-family:"Instrument Serif",serif; font-weight:400; margin:0; line-height:.82; }
 h1 { width:100%; font-size:clamp(6.5rem,18vw,15rem); letter-spacing:-.07em; display:flex; flex-direction:column; align-items:center; text-align:center; text-transform:uppercase; text-shadow:0 14px 55px #000; }
 h1.h1-small { font-size:clamp(4.5rem,11vw,8.5rem); }
 h1 span { text-transform:uppercase; }
 h1 em { color:var(--pink); font-weight:400; padding-left:0; margin-top:-.05em; }
-h1.h1-offset { position:relative; display:block; text-align:left; width:min(300px,58vw); margin:0 auto; padding-bottom:.95em; }
-h1.h1-offset span { display:block; text-align:left; }
-h1.h1-offset em { position:absolute; left:59%; top:.82em; }
-h1.h1-offset .cap-decor-1 { position:absolute; left:97%; top:.5em; transform:translateX(-50%) rotate(-6deg); width:clamp(50px,6.2vw,86px); z-index:1; }
+h1.h1-offset { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; width:auto; margin:0 auto; }
+h1.h1-offset span { display:block; text-align:center; }
+h1.h1-offset em { display:block; text-align:center; margin-top:-.1em; }
 .party-name { text-transform:uppercase; letter-spacing:.55em; font-size:clamp(.65rem,1.3vw,.9rem); font-weight:700; margin:34px 0 18px; }
 .date-lockup { display:flex; gap:14px; align-items:center; margin:20px 0; }
 .date-lockup span { background:var(--pink); color:white; font-size:.7rem; padding:7px 9px; border-radius:2px; font-weight:700; }

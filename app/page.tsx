@@ -161,9 +161,11 @@ export default function Home() {
           <div className="nav-links"><a className="nav-date" href="#detalhes">31.07.26</a></div>
         </nav>
         <div className="hero-copy reveal">
-          <p className="eyebrow">Comemore a formatura da Nat!</p>
-          <h1 className="h1-small h1-offset">
+          <div className="eyebrow-wrap">
             <img src={CAP_IMAGE} alt="" className="cap-decor cap-decor-1" aria-hidden="true" />
+            <p className="eyebrow">Comemore a formatura da Nat!</p>
+          </div>
+          <h1 className="h1-small h1-offset">
             <span>Forma</span>
             <em>tura</em>
           </h1>
