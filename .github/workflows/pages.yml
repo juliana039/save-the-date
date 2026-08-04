@@ -26,7 +26,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # The lockfile was generated with a newer npm version; the npm bundled
+      # with the GitHub runner rejects it under `npm ci`. `npm install` keeps
+      # dependency resolution compatible while preserving the declared ranges.
+      - run: npm install
       - run: npm run build:pages
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
