@@ -232,7 +232,7 @@ export default function Home() {
           <div className="intro-copy">
             <h2>Venha <em>comemorar</em> comigo!</h2>
             <div className="body-copy">
-              <p>Esse ano, eu vou fazer 25 anos, o que já é metade da metade de uma vida — ou menos, rs.</p>
+              <p>Esse ano, eu vou fazer 25 anos!</p>
               <p>E você fez parte dessa história até aqui. Então, é claro que não podia ficar de fora dessa comemoração.</p>
               <p>E veio com uma condição: apareça de peruca. Colorida, curta, longa, natural ou completamente diferente do seu cabelo. Escolha a que mais combinar com a sua personalidade da noite. Agora é só vir e se divertir!</p>
             </div>
