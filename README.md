@@ -10,7 +10,7 @@ O projeto já inclui o workflow `.github/workflows/pages.yml`. Depois de enviar 
 2. Em **Build and deployment**, selecione **GitHub Actions**.
 3. Aguarde a ação “Publicar convite no GitHub Pages”.
 
-O endereço ficará no formato `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
+Endereço : `https://juliana039.github.io/save-the-date/`.
 
 ## Desenvolvimento
 
