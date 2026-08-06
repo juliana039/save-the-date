@@ -2,34 +2,30 @@
 
 import { useEffect, useState } from "react";
 
-const EVENT_DATE = new Date("2026-09-03T19:00:00-04:00");
+const EVENT_DATE = new Date("2026-09-05T19:30:00-04:00");
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-// TODO: quando a Ju enviar as fotos/gifs da peruca, troque estes caminhos.
-// Coloque os arquivos em /public e liste aqui (pode ser .gif, .png ou .jpg).
-const WIG_IMAGES = [
-  `${BASE_PATH}/wig-party-editorial.png`,
-  `${BASE_PATH}/wig-party-editorial.png`,
-  `${BASE_PATH}/wig-party-editorial.png`,
-];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgqaybl";
 
-// Não dá pra puxar a imagem de um link do Pinterest automaticamente (o Pinterest bloqueia
-// esse tipo de acesso, e reproduzir a imagem sem baixá-la seria usar conteúdo de terceiros
-// sem permissão). Pra mostrar a foto de verdade em vez do cartão com link:
-// 1. baixe a imagem de cada pin;
-// 2. salve em /public/referencias/ (ex: ref-1.jpg, ref-2.jpg...);
-// 3. preencha o campo "image" abaixo com o caminho, ex: `${BASE_PATH}/referencias/ref-1.jpg`.
-// Enquanto "image" estiver vazio, o carrossel mostra o cartão com o link do pin.
-const REFERENCES: { url: string; image?: string }[] = [
-  { url: "https://br.pinterest.com/pin/800514902566498845/" },
-  { url: "https://br.pinterest.com/pin/800514902566465398/" },
-  { url: "https://br.pinterest.com/pin/391953973841641276/" },
-  { url: "https://br.pinterest.com/pin/680325087496969171/" },
-  { url: "https://br.pinterest.com/pin/831406781254519051/" },
-  { url: "https://br.pinterest.com/pin/1012465559996291089/" },
-  { url: "https://br.pinterest.com/pin/859765385170286241/" },
+const PERUCA_IMAGES = [
+  `${BASE_PATH}/peruca/1.png`,
+  `${BASE_PATH}/peruca/2.png`,
+  `${BASE_PATH}/peruca/3.png`,
+  `${BASE_PATH}/peruca/4.png`,
+];
+
+const MOOD_IMAGES = [
+  `${BASE_PATH}/moods/imagem1.jpg`,
+  `${BASE_PATH}/moods/imagem2.jpg`,
+  `${BASE_PATH}/moods/imagem3.jpg`,
+  `${BASE_PATH}/moods/imagem4.jpg`,
+  `${BASE_PATH}/moods/imagem5.jpg`,
+  `${BASE_PATH}/moods/imagem6.jpg`,
+  `${BASE_PATH}/moods/imagem7.jpg`,
+  `${BASE_PATH}/moods/imagem8.jpg`,
+  `${BASE_PATH}/moods/imagem9.jpg`,
+  `${BASE_PATH}/moods/imagem10.jpg`,
+  `${BASE_PATH}/moods/imagem11.jpg`,
 ];
 
 function pad(value: number) {
@@ -70,33 +66,40 @@ function saveCalendar() {
   const calendar = [
     "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Wig Party da Ju//Save the Date//PT-BR",
     "BEGIN:VEVENT", "UID:wig-party-ju-2026@save-the-date", "DTSTAMP:20260716T120000Z",
-    "DTSTART:20260903T190000", "DTEND:20260903T230000", "SUMMARY:Wig Party da Ju",
-    "LOCATION:A confirmar", "DESCRIPTION:Comemore os 25 da Ju! Horário: 19h. Local ainda a confirmar, aviso em breve. Já pode procurar sua peruca!",
+    "DTSTART:20260905T193000", "DTEND:20260905T233000", "SUMMARY:Wig Party da Ju",
+    "LOCATION:A confirmar (ideia: karaokê + pizza)", "DESCRIPTION:Comemore os 25 da Ju! Horário: 19h30. A ideia é rolar num karaokê com pizza\\, mas depende de quantos confirmarem. Já pode procurar sua peruca!",
     "END:VEVENT", "END:VCALENDAR",
   ].join("\r\n");
+  const url = URL.createObjectURL(new Blob([calendar], { type: "text/calendar;charset=utf-8" }));
   const link = document.createElement("a");
-  link.href = URL.createObjectURL(new Blob([calendar], { type: "text/calendar;charset=utf-8" }));
+  link.href = url;
   link.download = "wig-party-da-ju.ics";
+  link.rel = "noopener";
+  document.body.appendChild(link);
   link.click();
-  URL.revokeObjectURL(link.href);
+  document.body.removeChild(link);
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-function WigAnimation() {
+function PerucaFlashBox({ images }: { images: string[] }) {
   const [index, setIndex] = useState(0);
+  const [flash, setFlash] = useState(false);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % WIG_IMAGES.length);
-    }, 1600);
+      setFlash(true);
+      window.setTimeout(() => setFlash(false), 120);
+      setIndex((current) => (current + 1) % images.length);
+    }, 500);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
-    <div className="wig-gif" aria-hidden="true">
-      {WIG_IMAGES.map((src, i) => (
+    <div className="peruca-flashbox" aria-hidden="true">
+      {images.map((src, i) => (
         <img key={i} src={src} alt="" className={i === index ? "is-active" : ""} />
       ))}
-      <span className="wig-gif-tag">peruca em construção ✦</span>
+      <div className={`peruca-flash${flash ? " is-flashing" : ""}`} />
     </div>
   );
 }
@@ -204,13 +207,13 @@ export default function Home() {
         <div className="hero-glow" aria-hidden="true" />
         <nav aria-label="Navegação principal">
           <a className="wordmark" href="#inicio">JULIANA CONVIDA <i>✦</i></a>
-          <div className="nav-links"><a href={`${BASE_PATH}/opcoes`}>Ver opções ✦</a><a className="nav-date" href="#detalhes">03.09.26</a></div>
+          <div className="nav-links"><a className="nav-date" href="#detalhes">05.09.26</a></div>
         </nav>
         <div className="hero-copy reveal">
           <p className="eyebrow">Comemore os 25 da Ju</p>
           <h1 className="h1-small"><span>Wig</span><em>Party</em></h1>
           <p className="party-name">Save the date</p>
-          <div className="date-lockup"><span>QUI</span><strong>03 · 09 · 2026</strong></div>
+          <div className="date-lockup"><span>SÁB</span><strong>05 · 09 · 2026</strong></div>
           <div className="date-glitter-beam" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
           <p className="hero-note">Separe a data e comece a procurar sua peruca.</p>
           <div className="actions">
@@ -220,26 +223,28 @@ export default function Home() {
         <a className="scroll" href="#tema">deslize para descobrir ↓</a>
       </section>
 
-      <section className="ticker" aria-hidden="true"><div>COLOQUE A PERUCA ✦ ESCOLHA SUA PERSONALIDADE ✦ 03.09.2026 ✦ COLOQUE A PERUCA ✦ ESCOLHA SUA PERSONALIDADE ✦</div></section>
+      <section className="ticker" aria-hidden="true"><div>COLOQUE A PERUCA ✦ ESCOLHA SUA PERSONALIDADE ✦ 05.09.2026 ✦ COLOQUE A PERUCA ✦ ESCOLHA SUA PERSONALIDADE ✦</div></section>
 
       <section className="intro section" id="tema">
+        <div className="intro-sparkles" aria-hidden="true">{Array.from({ length: 10 }, (_, index) => <i key={index} style={{ "--i": index } as React.CSSProperties} />)}</div>
         <div className="section-number">01 / O TEMA</div>
         <div className="intro-grid">
           <div className="intro-copy">
-            <h2>São <em>25</em> anos!</h2>
+            <h2>Venha <em>comemorar</em> comigo!</h2>
             <div className="body-copy">
-              <p>Venha comemorar comigo. Se você foi convidado(a), fez parte de pelo menos <strong>1/4</strong> (ou seria 1/3? tô brincando, não sei fazer conta) da minha vida até aqui.</p>
-              <p>E claro, veio com uma condição: apareça de peruca. Colorida, curta, longa, natural ou bem diferente do seu cabelo — escolha a que mais combina com a sua personalidade da noite.</p>
+              <p>Esse ano, eu vou fazer 25 anos, o que já é metade da metade de uma vida — ou menos, rs.</p>
+              <p>E você fez parte dessa história até aqui. Então, é claro que não podia ficar de fora dessa comemoração.</p>
+              <p>E veio com uma condição: apareça de peruca. Colorida, curta, longa, natural ou completamente diferente do seu cabelo. Escolha a que mais combinar com a sua personalidade da noite. Agora é só vir e se divertir!</p>
             </div>
           </div>
-          <WigAnimation />
+          <img className="intro-photo" src={`${BASE_PATH}/25ANOS.png`} alt="Colagem dos 25 anos da Ju" />
         </div>
       </section>
 
       <section className="dress section">
         <div className="section-number light">02 / DICAS</div>
         <div className="dress-heading">
-          <h2>O que <span>vestir?</span></h2>
+          <h2>Anota essas <span>dicas</span></h2>
           <p>Vista algo casual pra sair à noite</p>
         </div>
 
@@ -251,7 +256,7 @@ export default function Home() {
           </article>
           <article className="tip-card">
             <span>Ou compre online</span>
-            <p>Também dá pra achar em lojas online — por isso o aviso cedo, pra dar tempo de chegar.</p>
+            <p>Também tem como achar em lojas online - Shopee, AliExpress, etc.</p>
           </article>
           <article className="tip-card">
             <span>Reaproveite uma peruca</span>
@@ -259,53 +264,63 @@ export default function Home() {
           </article>
           <article className="tip-card tip-card-note">
             <span>Sobre o restaurante</span>
-            <p>Ainda não definido — ou definido em breve, sei lá. Aviso assim que fechar!</p>
+            <p>Ainda não definido — ou definido em breve. Aviso assim que fechar! </p>
           </article>
+        </div>
+
+        <div className="tips-monkeys" aria-hidden="true">
+          <img className="monkey monkey-1" src={`${BASE_PATH}/macaconovo1.png`} alt="" />
+          <img className="monkey monkey-2" src={`${BASE_PATH}/macaconovo2.png`} alt="" />
+          <img className="monkey monkey-3" src={`${BASE_PATH}/macaconovo3.png`} alt="" />
         </div>
 
         <p className="only-rule">A única regra é <em>aparecer de peruca!</em></p>
       </section>
 
       <section className="details section" id="detalhes">
+        <img className="details-disco-gold" src={`${BASE_PATH}/globo-dourado.png`} alt="" aria-hidden="true" />
         <div className="section-number">03 / ANOTE AÍ</div>
-        <div className="details-title"><p>uma noite para celebrar</p><h2>03<br /><em>setembro</em><br />2026</h2></div>
+        <div className="details-title"><p>uma noite para celebrar</p><h2>05<br /><em>setembro</em><br />2026</h2></div>
         <div className="detail-cards">
-          <article><span>Data</span><strong>Quinta, 3 de setembro<br />de 2026</strong></article>
-          <article><span>Horário</span><strong>19h</strong><small>Provável — pode ajustar</small></article>
-          <article><span>Local</span><strong>Em breve</strong><small>Ainda não definido — aviso assim que fechar</small></article>
+          <article><span>Data</span><strong>Sábado, 5 de setembro<br />de 2026</strong></article>
+          <article><span>Horário</span><strong>19h30</strong><small>Provável — pode ajustar</small></article>
+          <article><span>Local</span><strong>Ideia: karaokê + pizza</strong><small>Depende de quantos confirmarem — aviso assim que fechar</small></article>
         </div>
-        <p className="save-note">Em breve, mais informações.</p>
+        <p className="save-note">A ideia é rolar num karaokê com pizza, mas depende de quantos confirmarem presença. Em breve, mais informações.</p>
         <Countdown />
       </section>
 
       <section className="rsvp section" id="presenca">
+        <img className="rsvp-disco-silver" src={`${BASE_PATH}/ponta-globo-prata.png`} alt="" aria-hidden="true" />
         <div className="section-number">04 / VOCÊ VAI?</div>
         <div className="rsvp-heading">
           <h2>Confirme sua<br /><em>presença</em></h2>
           <p>Me conta se vai comemorar os 25 da Ju e se leva alguém junto.</p>
         </div>
-        <RsvpForm />
+        <div className="rsvp-form-wrap">
+          <img className="rsvp-arrow" src={`${BASE_PATH}/setarosa1.png`} alt="" aria-hidden="true" />
+          <RsvpForm />
+        </div>
       </section>
 
       <section className="gallery section">
+        <div className="mood-bg" aria-hidden="true">
+          {Array.from({ length: 30 }, (_, i) => (
+            <img key={i} src={MOOD_IMAGES[i % MOOD_IMAGES.length]} alt="" />
+          ))}
+        </div>
         <div className="section-number">05 / REFERÊNCIAS</div>
         <div className="refs-heading">
           <h2>Mood da<br /><em>noite</em></h2>
           <p>Algumas referências de peruca e look pra te inspirar.</p>
         </div>
-        <div className="refs-carousel">
-          {REFERENCES.map((ref, index) => (
-            <a className={`ref-card${ref.image ? " has-image" : ""}`} href={ref.url} target="_blank" rel="noopener noreferrer" key={ref.url}>
-              {ref.image ? (
-                <img src={ref.image} alt={`Referência ${index + 1}`} />
-              ) : (
-                <>
-                  <span className="ref-number">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="ref-label">Ver referência ↗</span>
-                </>
-              )}
-            </a>
+        <div className="moodboard">
+          {MOOD_IMAGES.map((src, index) => (
+            <img key={src} className={`mood-item mood-item-${index + 1}`} src={src} alt={`Referência ${index + 1}`} />
           ))}
+          <div className="mood-flashbox">
+            <PerucaFlashBox images={PERUCA_IMAGES} />
+          </div>
         </div>
       </section>
 
@@ -314,12 +329,12 @@ export default function Home() {
           <p className="section-number light">06 / PRA NÃO ESQUECER</p>
           <h2>Até setembro...</h2>
           <ol>
-            <li><b>01</b><span>Reservar quinta, dia 3 de setembro.</span><i>✓</i></li>
+            <li><b>01</b><span>Reservar sábado, dia 5 de setembro.</span><i>✓</i></li>
             <li><b>02</b><span>Escolher uma peruca.</span><i>○</i></li>
-            <li><b>03</b><span>Guardar energia para comemorar.</span><i>○</i></li>
-            <li><b>04</b><span>Esperar o endereço ser revelado.</span><i>○</i></li>
+            <li><b>03</b><span>Escolher músicas pra arrasar.</span><i>○</i></li>
+            <li><b>04</b><span>Esperar eu confirmar o restaurante.</span><i>○</i></li>
           </ol>
-          <p className="mission-foot">O resto vem depois —<br /><em>por enquanto, só cuide da peruca.</em></p>
+          <p className="mission-foot">O resto vem depois —<br /><em>por enquanto, só procure uma peruca.</em></p>
         </div>
       </section>
 
@@ -327,15 +342,21 @@ export default function Home() {
         <div className="closing-disco" aria-hidden="true"><span /></div>
         <div className="closing-reflections" aria-hidden="true">{Array.from({ length: 14 }, (_, index) => <i key={index} style={{ "--i": index } as React.CSSProperties} />)}</div>
         <p className="closing-top">Comemore os 25 da Ju —</p>
-        <h2>bora colocar<br />a <em>peruca?</em></h2>
-        <div className="closing-date">03 <span>/</span> 09 <span>/</span> 2026</div>
+        <h2>vem <em>cantar</em><br />comigo?</h2>
+        <div className="closing-date">05 <span>/</span> 09 <span>/</span> 2026</div>
         <div className="actions centered">
           <button className="button primary" onClick={saveCalendar}>＋ Salvar na agenda</button>
-          <a className="button ghost light-button" href="#presenca">Confirmar presença ↗</a>
+          <a className="button ghost light-button" href="#presenca">Confirmar presença 🎤</a>
         </div>
         <p className="last-line">Seu cabelo pode até faltar, mas você não.</p>
       </section>
-      <footer><span>Wig Party da Ju · 2026</span><span>✦ Save the Date ✦</span></footer>
+      <footer>
+        <div className="footer-row">
+          <span>Wig Party da Ju · 2026</span>
+          <span>✦ Save the Date ✦</span>
+        </div>
+        <span className="footer-ps">PS: amigos designers, site feito com muita IA e muito Pinterest, favor não dar zoom e olhar detalhes :)</span>
+      </footer>
     </main>
   );
 }
