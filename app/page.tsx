@@ -67,7 +67,7 @@ function saveCalendar() {
     "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Wig Party da Ju//Save the Date//PT-BR",
     "BEGIN:VEVENT", "UID:wig-party-ju-2026@save-the-date", "DTSTAMP:20260716T120000Z",
     "DTSTART:20260905T193000", "DTEND:20260905T233000", "SUMMARY:Wig Party da Ju",
-    "LOCATION:A confirmar (ideia: karaokê + pizza)", "DESCRIPTION:Comemore os 25 da Ju! Horário: 19h30. A ideia é rolar num karaokê com pizza\\, mas depende de quantos confirmarem. Já pode procurar sua peruca!",
+    "LOCATION:Barão Brejas & Burgers - R. Amapá\\, 4 - Conj. Vieiralves\\, Manaus - AM\\, 69053-150", "DESCRIPTION:Comemore os 25 da Ju! Horário: 19h30. No Barão Brejas & Burgers\\, no Vieiralves. Já pode procurar sua peruca!",
     "END:VEVENT", "END:VCALENDAR",
   ].join("\r\n");
   const url = URL.createObjectURL(new Blob([calendar], { type: "text/calendar;charset=utf-8" }));
@@ -215,7 +215,7 @@ export default function Home() {
           <p className="party-name">Save the date</p>
           <div className="date-lockup"><span>SÁB</span><strong>05 · 09 · 2026</strong></div>
           <div className="date-glitter-beam" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
-          <p className="hero-note">Separe a data e comece a procurar sua peruca.</p>
+          <p className="hero-note">Separe a data e procure sua peruca.</p>
           <div className="actions">
             <button className="button primary" onClick={saveCalendar}>＋ Salvar na agenda</button>
           </div>
@@ -234,7 +234,7 @@ export default function Home() {
             <div className="body-copy">
               <p>Esse ano, eu vou fazer 25 anos!</p>
               <p>E você fez parte dessa história até aqui. Então, é claro que não podia ficar de fora dessa comemoração.</p>
-              <p>E veio com uma condição: apareça de peruca. Colorida, curta, longa, natural ou completamente diferente do seu cabelo. Escolha a que mais combinar com a sua personalidade da noite. Agora é só vir e se divertir!</p>
+              <p>E veio com uma <b>condição</b>: apareça de <b style={{ color: "var(--pink)" }}>peruca</b>. Colorida, curta, longa, natural ou completamente diferente do seu cabelo. Escolha a que mais combinar com a sua personalidade da noite. Agora é só vir e se divertir!</p>
             </div>
           </div>
           <img className="intro-photo" src={`${BASE_PATH}/25ANOS.png`} alt="Colagem dos 25 anos da Ju" />
@@ -264,7 +264,7 @@ export default function Home() {
           </article>
           <article className="tip-card tip-card-note">
             <span>Sobre o restaurante</span>
-            <p>Ainda não definido — ou definido em breve. Aviso assim que fechar! </p>
+            <p>Barão Brejas & Burgers, no Vieiralves.</p>
           </article>
         </div>
 
@@ -283,10 +283,9 @@ export default function Home() {
         <div className="details-title"><p>uma noite para celebrar</p><h2>05<br /><em>setembro</em><br />2026</h2></div>
         <div className="detail-cards">
           <article><span>Data</span><strong>Sábado, 5 de setembro<br />de 2026</strong></article>
-          <article><span>Horário</span><strong>19h30</strong><small>Provável — pode ajustar</small></article>
-          <article><span>Local</span><strong>Ideia: karaokê + pizza</strong><small>Depende de quantos confirmarem — aviso assim que fechar</small></article>
+          <article><span>Horário</span><strong>19h30</strong></article>
+          <article><span>Local</span><strong>Barão Brejas & Burgers</strong><small>R. Amapá, 4 - Conj. Vieiralves, Manaus - AM</small></article>
         </div>
-        <p className="save-note">A ideia é rolar num karaokê com pizza, mas depende de quantos confirmarem presença. Em breve, mais informações.</p>
         <Countdown />
       </section>
 
@@ -332,7 +331,7 @@ export default function Home() {
             <li><b>01</b><span>Reservar sábado, dia 5 de setembro.</span><i>✓</i></li>
             <li><b>02</b><span>Escolher uma peruca.</span><i>○</i></li>
             <li><b>03</b><span>Escolher músicas pra arrasar.</span><i>○</i></li>
-            <li><b>04</b><span>Esperar eu confirmar o restaurante.</span><i>○</i></li>
+            <li><b>04</b><span>Anotar o endereço do restaurante.</span><i>○</i></li>
           </ol>
           <p className="mission-foot">O resto vem depois —<br /><em>por enquanto, só procure uma peruca.</em></p>
         </div>
