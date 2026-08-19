@@ -251,8 +251,8 @@ export default function Home() {
         <div className="tips-grid">
           <article className="tip-card">
             <span>Onde achar peruca</span>
-            <p>Tem uma rua cheia de lojas de festa no centro, boa pedida pra comprar.</p>
-            <a href="https://maps.app.goo.gl/XVS6Dhq5tcLKct2o9" target="_blank" rel="noopener noreferrer">Ver no mapa ↗</a>
+            <p>Lojas do centro de festa ou de fantasia, boa pedida pra comprar.</p>
+            <a href="https://maps.app.goo.gl/XVS6Dhq5tcLKct2o9" target="_blank" rel="noopener noreferrer">Ver rua de lojas de festa no mapa ↗</a>
           </article>
           <article className="tip-card">
             <span>Ou compre online</span>
